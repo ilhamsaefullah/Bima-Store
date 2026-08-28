@@ -1,139 +1,168 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KASUAL — Gaya Kasual Keren Maksimal</title>
-  <meta name="description" content="Tampil keren tanpa ribet. Katalog baju kasual premium." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="header">
-    <div class="container header-inner">
-      <a href="#" class="logo">KASUAL</a>
-      <nav class="nav">
-        <a href="#home">Beranda</a>
-        <a href="#katalog">Katalog</a>
-        <a href="#tentang">Tentang</a>
-        <a href="#kontak">Kontak</a>
-      </nav>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <main>
-    <!-- HERO -->
-    <section id="home" class="hero">
-      <div class="hero-bg"></div>
-      <div class="container hero-content">
-        <p class="hero-eyebrow">Koleksi 2026</p>
-        <h1 class="hero-title">
-          Gaya Kasual<br />
-          <em>Keren Maksimal</em>
-        </h1>
-        <p class="hero-slogan">Tampil Keren Tanpa Ribet</p>
-        <p class="hero-desc">
-          Pakaian kasual yang nyaman dipakai setiap hari — desain simpel, bahan premium, siap temani aktivitasmu.
-        </p>
-        <div class="hero-actions">
-          <a href="#katalog" class="btn btn-primary">Lihat Katalog</a>
-          <a href="#kontak" class="btn btn-ghost">Hubungi Kami</a>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KASUAL — Gaya Kasual Keren Maksimal</title>
+    <meta
+      name="description"
+      content="Tampil keren tanpa ribet. Katalog baju kasual premium."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <a href="#" class="logo">BIMA\\\STORE</a>
+        <nav class="nav">
+          <a href="#home">Beranda</a>
+          <a href="#katalog">Katalog</a>
+          <a href="#tentang">Tentang</a>
+          <a href="#kontak">Kontak</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-    </section>
+    </header>
 
-    <!-- HIGHLIGHTS -->
-    <section class="highlights">
-      <div class="container highlights-grid">
-        <div class="highlight">
-          <span class="highlight-num">01</span>
-          <h3>Nyaman Sepanjang Hari</h3>
-          <p>Bahan breathable yang adem dan fleksibel untuk gerak bebas.</p>
-        </div>
-        <div class="highlight">
-          <span class="highlight-num">02</span>
-          <h3>Desain Timeless</h3>
-          <p>Potongan clean yang tetap relevan di setiap musim.</p>
-        </div>
-        <div class="highlight">
-          <span class="highlight-num">03</span>
-          <h3>Tanpa Ribet</h3>
-          <p>Langsung pakai, langsung keren — matching gampang.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CATALOG -->
-    <section id="katalog" class="catalog">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Katalog</p>
-          <h2>Pilihan Kasual Terbaik</h2>
-          <p class="section-desc">Koleksi ready-to-wear untuk gaya santai yang tetap on point.</p>
-        </div>
-
-        <div class="filters" id="filters">
-          <button type="button" class="filter on" data-filter="all">Semua</button>
-          <button type="button" class="filter" data-filter="kaos">Kaos</button>
-          <button type="button" class="filter" data-filter="kemeja">Kemeja</button>
-          <button type="button" class="filter" data-filter="celana">Celana</button>
-          <button type="button" class="filter" data-filter="outer">Outer</button>
-        </div>
-
-        <div class="product-grid" id="product-grid">
-          <!-- products injected by JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT / SLOGAN BAND -->
-    <section id="tentang" class="about">
-      <div class="container about-inner">
-        <div class="about-copy">
-          <p class="eyebrow">Tentang Kami</p>
-          <h2>Tampil keren<br /><em>tanpa ribet.</em></h2>
-          <p>
-            KASUAL lahir dari ide sederhana: pakaian yang enak dipakai, mudah dipadukan, dan membuatmu terlihat rapi tanpa usaha berlebih.
-            Setiap potongan dirancang untuk gaya hidup aktif — dari kerja santai sampai weekend out.
+    <main>
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+          <p class="hero-eyebrow">Koleksi 2026</p>
+          <h1 class="hero-title">
+            Gaya Kasual<br />
+            <em>Keren Maksimal</em>
+          </h1>
+          <p class="hero-slogan">Tampil Keren Tanpa Ribet</p>
+          <p class="hero-desc">
+            Pakaian kasual yang nyaman dipakai setiap hari — desain simpel,
+            bahan premium, siap temani aktivitasmu.
           </p>
-          <ul class="about-list">
-            <li>Bahan berkualitas &amp; nyaman</li>
-            <li>Potongan modern yang flattering</li>
-            <li>Warna netral &amp; mudah dicampur</li>
-          </ul>
+          <div class="hero-actions">
+            <a href="#katalog" class="btn btn-primary">Lihat Katalog</a>
+            <a href="#kontak" class="btn btn-ghost">Hubungi Kami</a>
+          </div>
         </div>
-        <div class="about-slogan-card">
-          <p class="slogan-main">Gaya Kasual<br />Keren Maksimal</p>
-          <p class="slogan-sub">Tampil Keren Tanpa Ribet</p>
+      </section>
+
+      <!-- HIGHLIGHTS -->
+      <section class="highlights">
+        <div class="container highlights-grid">
+          <div class="highlight">
+            <span class="highlight-num">01</span>
+            <h3>Nyaman Sepanjang Hari</h3>
+            <p>Bahan breathable yang adem dan fleksibel untuk gerak bebas.</p>
+          </div>
+          <div class="highlight">
+            <span class="highlight-num">02</span>
+            <h3>Desain Timeless</h3>
+            <p>Potongan clean yang tetap relevan di setiap musim.</p>
+          </div>
+          <div class="highlight">
+            <span class="highlight-num">03</span>
+            <h3>Tanpa Ribet</h3>
+            <p>Langsung pakai, langsung keren — matching gampang.</p>
+          </div>
         </div>
+      </section>
+
+      <!-- CATALOG -->
+      <section id="katalog" class="catalog">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Katalog</p>
+            <h2>Pilihan Kasual Terbaik</h2>
+            <p class="section-desc">
+              Koleksi ready-to-wear untuk gaya santai yang tetap on point.
+            </p>
+          </div>
+
+          <div class="filters" id="filters">
+            <button type="button" class="filter on" data-filter="all">
+              Semua
+            </button>
+            <button type="button" class="filter" data-filter="kaos">
+              Kaos
+            </button>
+            <button type="button" class="filter" data-filter="kemeja">
+              Kemeja
+            </button>
+            <button type="button" class="filter" data-filter="celana">
+              Celana
+            </button>
+            <button type="button" class="filter" data-filter="outer">
+              Outer
+            </button>
+          </div>
+
+          <div class="product-grid" id="product-grid">
+            <!-- products injected by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT / SLOGAN BAND -->
+      <section id="tentang" class="about">
+        <div class="container about-inner">
+          <div class="about-copy">
+            <p class="eyebrow">Tentang Kami</p>
+            <h2>Tampil keren<br /><em>tanpa ribet.</em></h2>
+            <p>
+              KASUAL lahir dari ide sederhana: pakaian yang enak dipakai, mudah
+              dipadukan, dan membuatmu terlihat rapi tanpa usaha berlebih.
+              Setiap potongan dirancang untuk gaya hidup aktif — dari kerja
+              santai sampai weekend out.
+            </p>
+            <ul class="about-list">
+              <li>Bahan berkualitas &amp; nyaman</li>
+              <li>Potongan modern yang flattering</li>
+              <li>Warna netral &amp; mudah dicampur</li>
+            </ul>
+          </div>
+          <div class="about-slogan-card">
+            <p class="slogan-main">Gaya Kasual<br />Keren Maksimal</p>
+            <p class="slogan-sub">Tampil Keren Tanpa Ribet</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section id="kontak" class="cta">
+        <div class="container cta-inner">
+          <h2>Siap upgrade gaya kasualmu?</h2>
+          <p>
+            Chat kami untuk cek stok, size chart, atau order koleksi favoritmu.
+          </p>
+          <div class="cta-actions">
+            <a
+              href="https://wa.me/6281234567890"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+              >WhatsApp Order</a
+            >
+            <a href="mailto:halo@kasual.id" class="btn btn-ghost">Email</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <a href="#" class="logo">KASUAL</a>
+        <p>© 2026 KASUAL. Gaya kasual keren maksimal.</p>
       </div>
-    </section>
+    </footer>
 
-    <!-- CTA -->
-    <section id="kontak" class="cta">
-      <div class="container cta-inner">
-        <h2>Siap upgrade gaya kasualmu?</h2>
-        <p>Chat kami untuk cek stok, size chart, atau order koleksi favoritmu.</p>
-        <div class="cta-actions">
-          <a href="https://wa.me/6281234567890" class="btn btn-primary" target="_blank" rel="noopener">WhatsApp Order</a>
-          <a href="mailto:halo@kasual.id" class="btn btn-ghost">Email</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <a href="#" class="logo">KASUAL</a>
-      <p>© 2026 KASUAL. Gaya kasual keren maksimal.</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
