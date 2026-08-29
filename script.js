@@ -91,7 +91,12 @@ function formatPrice(n) {
 }
 
 function categoryLabel(cat) {
-  const map = { kaos: "Kaos", kemeja: "Kemeja", celana: "Celana", outer: "Outer" };
+  const map = {
+    kaos: "Kaos",
+    kemeja: "Kemeja",
+    celana: "Celana",
+    outer: "Outer",
+  };
   return map[cat] || cat;
 }
 
@@ -115,7 +120,7 @@ function renderProducts(filter = "all") {
         <p class="product-price">${formatPrice(p.price)}</p>
         ${p.tag ? `<span class="product-tag">${p.tag}</span>` : ""}
       </div>
-    </article>`
+    </article>`,
     )
     .join("");
 }
@@ -127,7 +132,9 @@ document.addEventListener("DOMContentLoaded", () => {
   filters?.addEventListener("click", (e) => {
     const btn = e.target.closest(".filter");
     if (!btn) return;
-    filters.querySelectorAll(".filter").forEach((b) => b.classList.remove("on"));
+    filters
+      .querySelectorAll(".filter")
+      .forEach((b) => b.classList.remove("on"));
     btn.classList.add("on");
     renderProducts(btn.dataset.filter);
   });
@@ -135,7 +142,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("nav-toggle");
   const nav = document.querySelector(".nav");
   toggle?.addEventListener("click", () => nav?.classList.toggle("open"));
-  nav?.querySelectorAll("a").forEach((a) =>
-    a.addEventListener("click", () => nav.classList.remove("open"))
-  );
+  nav
+    ?.querySelectorAll("a")
+    .forEach((a) =>
+      a.addEventListener("click", () => nav.classList.remove("open")),
+    );
 });
