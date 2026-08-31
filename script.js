@@ -1,8 +1,8 @@
 const products = [
   {
     id: 1,
-    name: "Kaos Essential Crew",
-    category: "kaos",
+    name: "Jenis Baju A1",
+    category: "Type A",
     price: 129000,
     tag: "Best seller",
     color: "#d4cfc6",
@@ -10,8 +10,8 @@ const products = [
   },
   {
     id: 2,
-    name: "Kaos Oversized Wash",
-    category: "kaos",
+    name: "Jenis Baju A2",
+    category: "Type A",
     price: 149000,
     tag: "New",
     color: "#b8c4c0",
@@ -19,8 +19,8 @@ const products = [
   },
   {
     id: 3,
-    name: "Kemeja Linen Casual",
-    category: "kemeja",
+    name: "Jenis Baju B1",
+    category: "Type B",
     price: 249000,
     tag: null,
     color: "#cfc6b8",
@@ -28,8 +28,8 @@ const products = [
   },
   {
     id: 4,
-    name: "Kemeja Oxford Daily",
-    category: "kemeja",
+    name: "Jenis Baju B2",
+    category: "Type B",
     price: 229000,
     tag: "New",
     color: "#c2ccd6",
@@ -37,8 +37,8 @@ const products = [
   },
   {
     id: 5,
-    name: "Celana Chino Slim",
-    category: "celana",
+    name: "Jenis Baju C1",
+    category: "Type C",
     price: 279000,
     tag: "Best seller",
     color: "#a8a49c",
@@ -46,8 +46,8 @@ const products = [
   },
   {
     id: 6,
-    name: "Celana Cargo Soft",
-    category: "celana",
+    name: "Jenis Baju C2",
+    category: "Type C",
     price: 299000,
     tag: null,
     color: "#9a9e96",
@@ -55,8 +55,8 @@ const products = [
   },
   {
     id: 7,
-    name: "Hoodie Fleece Minimal",
-    category: "outer",
+    name: "Jenis Baju D1",
+    category: "Type D",
     price: 329000,
     tag: "New",
     color: "#8f9398",
@@ -64,8 +64,8 @@ const products = [
   },
   {
     id: 8,
-    name: "Jaket Coach Light",
-    category: "outer",
+    name: "Jenis Baju D2",
+    category: "Type D",
     price: 359000,
     tag: null,
     color: "#7d8580",
@@ -73,8 +73,8 @@ const products = [
   },
   {
     id: 9,
-    name: "Kaos Pocket Tee",
-    category: "kaos",
+    name: "Jenis Baju A3",
+    category: "Type A",
     price: 139000,
     tag: null,
     color: "#e0d5c8",
