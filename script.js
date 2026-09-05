@@ -1,84 +1,99 @@
 const products = [
   {
     id: 1,
-    name: "Jenis Baju A1",
+    name: "Tactikal Panjang",
     category: "Type A",
     price: 129000,
     tag: "Best seller",
-    color: "#d4cfc6",
-    label: "Tee",
+    image: "produk/taktikal1.png",
   },
   {
     id: 2,
-    name: "Jenis Baju A2",
+    name: "Tactikal Panjang",
     category: "Type A",
     price: 149000,
     tag: "New",
-    color: "#b8c4c0",
-    label: "Oversized",
+    image: "produk/taktikal2.png",
   },
   {
     id: 3,
-    name: "Jenis Baju B1",
-    category: "Type B",
-    price: 249000,
-    tag: null,
-    color: "#cfc6b8",
-    label: "Linen",
-  },
-  {
-    id: 4,
-    name: "Jenis Baju B2",
-    category: "Type B",
-    price: 229000,
-    tag: "New",
-    color: "#c2ccd6",
-    label: "Oxford",
-  },
-  {
-    id: 5,
-    name: "Jenis Baju C1",
-    category: "Type C",
-    price: 279000,
-    tag: "Best seller",
-    color: "#a8a49c",
-    label: "Chino",
-  },
-  {
-    id: 6,
-    name: "Jenis Baju C2",
-    category: "Type C",
-    price: 299000,
-    tag: null,
-    color: "#9a9e96",
-    label: "Cargo",
-  },
-  {
-    id: 7,
-    name: "Jenis Baju D1",
-    category: "Type D",
-    price: 329000,
-    tag: "New",
-    color: "#8f9398",
-    label: "Hoodie",
-  },
-  {
-    id: 8,
-    name: "Jenis Baju D2",
-    category: "Type D",
-    price: 359000,
-    tag: null,
-    color: "#7d8580",
-    label: "Coach",
-  },
-  {
-    id: 9,
-    name: "Jenis Baju A3",
+    name: "Tactikal Panjang",
     category: "Type A",
     price: 139000,
     tag: null,
-    color: "#e0d5c8",
-    label: "Pocket",
+    image: "produk/taktikal3.png",
+  },
+  {
+    id: 4,
+    name: "Kemeja Polos",
+    category: "Type B",
+    price: 249000,
+    tag: null,
+    image: "produk/kemejapolos1.png",
+  },
+  {
+    id: 5,
+    name: "Kemeja Polos",
+    category: "Type B",
+    price: 229000,
+    tag: "New",
+    image: "produk/kemejapolos2.png",
+  },
+  {
+    id: 6,
+    name: "Kemeja Polos",
+    category: "Type B",
+    price: 229000,
+    tag: "New",
+    image: "produk/kemejapolos3.png",
+  },
+  {
+    id: 7,
+    name: "Kemeja Motif",
+    category: "Type D",
+    price: 329000,
+    tag: "New",
+    image: "produk/kemejamotif1.png",
+  },
+  {
+    id: 8,
+    name: "Kemeja Motif",
+    category: "Type D",
+    price: 359000,
+    tag: null,
+    image: "produk/kemejamotif2.png",
+  },
+  {
+    id: 9,
+    name: "Kemeja Motif",
+    category: "Type D",
+    price: 359000,
+    tag: null,
+    image: "produk/kemejamotif3.png",
+  },
+  {
+    id: 10,
+    name: "Flanel",
+    category: "Type C",
+    price: 279000,
+    tag: "Best seller",
+    image: "produk/flanel1.png",
+  },
+  {
+    id: 11,
+    name: "Flanel",
+    category: "Type C",
+    price: 299000,
+    tag: null,
+    image: "produk/flanel2.png",
+  },
+  {
+    id: 12,
+    name: "Flanel",
+    category: "Type C",
+    price: 299000,
+    tag: null,
+    image: "produk/flanel2.png",
   },
 ];
 
@@ -92,12 +107,32 @@ function formatPrice(n) {
 
 function categoryLabel(cat) {
   const map = {
-    kaos: "Kaos",
-    kemeja: "Kemeja",
-    celana: "Celana",
-    outer: "Outer",
+    "Type A": "Kemeja Tactical",
+    "Type B": "Kemeja Polos",
+    "Type C": "Flanel",
+    "Type D": "Kemeja Motif",
   };
   return map[cat] || cat;
+}
+
+function productImageHtml(p) {
+  const fallback = p.color || "#e5e1da";
+  const label = p.label || p.name.split(" ")[0];
+  if (p.image) {
+    return `
+      <div class="product-img" style="background:${fallback}">
+        <img
+          src="${p.image}"
+          alt="${p.name}"
+          loading="lazy"
+          onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<div class=\\'swatch\\'>${label}</div>');"
+        />
+      </div>`;
+  }
+  return `
+    <div class="product-img" style="background:${fallback}">
+      <div class="swatch">${label}</div>
+    </div>`;
 }
 
 function renderProducts(filter = "all") {
@@ -107,13 +142,16 @@ function renderProducts(filter = "all") {
   const list =
     filter === "all" ? products : products.filter((p) => p.category === filter);
 
+  if (!list.length) {
+    grid.innerHTML = `<p style="grid-column:1/-1;color:var(--fg-muted)">Belum ada produk di kategori ini.</p>`;
+    return;
+  }
+
   grid.innerHTML = list
     .map(
       (p) => `
     <article class="product" data-category="${p.category}">
-      <div class="product-img" style="background:${p.color}">
-        <div class="swatch">${p.label}</div>
-      </div>
+      ${productImageHtml(p)}
       <div class="product-body">
         <p class="product-cat">${categoryLabel(p.category)}</p>
         <h3 class="product-name">${p.name}</h3>
