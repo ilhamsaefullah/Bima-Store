@@ -579,6 +579,62 @@ button {
   background: transparent;
   filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.35));
 }
+.about-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.about-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-top: -12px; /* naik sedikit */
+}
+
+.about-logo-oval {
+  width: min(100%, 270px); /* lebih kecil */
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 50%;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.35));
+}
+
+.about-footage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+.footage-item {
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footage-item img,
+.footage-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .about-logo-oval {
+    width: min(100%, 160px);
+    max-height: 160px;
+  }
+  .about-footage {
+    gap: 8px;
+  }
+}
 
 /* CTA */
 .cta {
