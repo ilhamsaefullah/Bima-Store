@@ -166,8 +166,8 @@ button {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(21, 75, 238, 0.5) 0%,
-    rgba(66, 110, 241, 0.58) 50%,
+    rgba(248, 248, 247, 0.5) 0%,
+    rgba(246, 247, 245, 0.58) 50%,
     rgba(10, 31, 77, 0.12) 100%
   );
   pointer-events: none;
