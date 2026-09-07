@@ -160,6 +160,10 @@ const products = [
   },
 ];
 
+const PER_PAGE = 12;
+let currentFilter = "all";
+let currentPage = 1;
+
 function formatPrice(n) {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -171,11 +175,16 @@ function formatPrice(n) {
 function categoryLabel(cat) {
   const map = {
     "Type A": "Kemeja Tactical",
-    "Type B": "Kemeja Polos",
-    "Type C": "Flanel",
+    "Type B": "Kemeja Pendek",
+    "Type C": "Kemeja Panjang",
     "Type D": "Kemeja Motif",
   };
   return map[cat] || cat;
+}
+
+function getFilteredProducts() {
+  if (currentFilter === "all") return products.slice();
+  return products.filter((p) => p.category === currentFilter);
 }
 
 function productImageHtml(p) {
@@ -198,19 +207,56 @@ function productImageHtml(p) {
     </div>`;
 }
 
-function renderProducts(filter = "all") {
-  const grid = document.getElementById("product-grid");
-  if (!grid) return;
+function renderPagination(totalPages) {
+  const nav = document.getElementById("pagination");
+  if (!nav) return;
 
-  const list =
-    filter === "all" ? products : products.filter((p) => p.category === filter);
-
-  if (!list.length) {
-    grid.innerHTML = `<p style="grid-column:1/-1;color:var(--fg-muted)">Belum ada produk di kategori ini.</p>`;
+  if (totalPages <= 1) {
+    nav.innerHTML = "";
+    nav.hidden = true;
     return;
   }
 
-  grid.innerHTML = list
+  nav.hidden = false;
+  let html = "";
+  html += `<button type="button" class="page-btn page-nav" data-page="${
+    currentPage - 1
+  }" ${currentPage === 1 ? "disabled" : ""} aria-label="Sebelumnya">‹</button>`;
+
+  for (let i = 1; i <= totalPages; i++) {
+    html += `<button type="button" class="page-btn ${
+      i === currentPage ? "on" : ""
+    }" data-page="${i}">${i}</button>`;
+  }
+
+  html += `<button type="button" class="page-btn page-nav" data-page="${
+    currentPage + 1
+  }" ${
+    currentPage === totalPages ? "disabled" : ""
+  } aria-label="Berikutnya">›</button>`;
+
+  nav.innerHTML = html;
+}
+
+function renderProducts() {
+  const grid = document.getElementById("product-grid");
+  if (!grid) return;
+
+  const list = getFilteredProducts();
+  const totalPages = Math.max(1, Math.ceil(list.length / PER_PAGE));
+  if (currentPage > totalPages) currentPage = totalPages;
+  if (currentPage < 1) currentPage = 1;
+
+  const start = (currentPage - 1) * PER_PAGE;
+  const pageItems = list.slice(start, start + PER_PAGE);
+
+  if (!list.length) {
+    grid.innerHTML = `<p style="grid-column:1/-1;color:var(--fg-muted)">Belum ada produk di kategori ini.</p>`;
+    renderPagination(0);
+    return;
+  }
+
+  grid.innerHTML = pageItems
     .map(
       (p) => `
     <article class="product" data-category="${p.category}">
@@ -224,10 +270,12 @@ function renderProducts(filter = "all") {
     </article>`,
     )
     .join("");
+
+  renderPagination(totalPages);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderProducts("all");
+  renderProducts();
 
   const filters = document.getElementById("filters");
   filters?.addEventListener("click", (e) => {
@@ -237,7 +285,22 @@ document.addEventListener("DOMContentLoaded", () => {
       .querySelectorAll(".filter")
       .forEach((b) => b.classList.remove("on"));
     btn.classList.add("on");
-    renderProducts(btn.dataset.filter);
+    currentFilter = btn.dataset.filter || "all";
+    currentPage = 1;
+    renderProducts();
+  });
+
+  const pagination = document.getElementById("pagination");
+  pagination?.addEventListener("click", (e) => {
+    const btn = e.target.closest(".page-btn");
+    if (!btn || btn.disabled) return;
+    const page = Number(btn.dataset.page);
+    if (!Number.isFinite(page) || page < 1) return;
+    currentPage = page;
+    renderProducts();
+    document
+      .getElementById("katalog")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
   const toggle = document.getElementById("nav-toggle");
